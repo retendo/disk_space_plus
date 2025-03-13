@@ -1,11 +1,12 @@
 package com.piccmaq.disk_space_plus
 
+import android.content.Context
 import android.os.Environment
 import android.os.StatFs
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 
-class MethodHandlerImpl : MethodChannel.MethodCallHandler {
+class MethodHandlerImpl(private val context: Context) : MethodChannel.MethodCallHandler {
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
         when(call.method) {
             "getFreeDiskSpace" -> result.success(getFreeDiskSpace())
